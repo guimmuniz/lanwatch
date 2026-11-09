@@ -1,0 +1,1 @@
+# CP1: só a biblioteca padrão. (Flask entra no CP2 para o painel web)

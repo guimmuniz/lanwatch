@@ -1,0 +1,4 @@
+$ time docker stop collector
+collector
+real	0m0.153s
+2026-11-09 22:41:36,838 [INFO] [MainThread] encerrando coletor

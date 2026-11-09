@@ -1,0 +1,8 @@
+## cliente de teste
+<- b'{"type":"welcome","version":1,"server_time":1794264042.2008228}\n'
+<- conexao fechada pelo servidor
+## coletor
+2026-11-09 22:40:42,200 [INFO] [agent-pc99] agente pc99 conectado de 172.28.10.2:37258
+2026-11-09 22:40:42,201 [WARNING] [agent-pc99] métrica descartada de pc99: campo 'cpu' inválido: 250
+2026-11-09 22:40:42,241 [WARNING] [agent-pc99] métrica descartada de pc99: campo 'cpu' inválido: 'DROP TABLE'
+2026-11-09 22:40:42,241 [WARNING] [agent-pc99] violação de protocolo de pc99: JSON inválido: Expecting value: line 1 column 1 (char 0)

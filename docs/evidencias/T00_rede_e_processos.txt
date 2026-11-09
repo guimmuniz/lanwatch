@@ -1,0 +1,30 @@
+$ docker exec collector ip -4 addr show eth0
+2: eth0@if29: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet 172.28.10.10/24 brd 172.28.10.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+$ docker exec collector ss -tnp state established "( sport = :5000 )"
+Recv-Q Send-Q Local Address:Port Peer Address:Port Process                       
+0      0       172.28.10.10:5000 172.28.10.23:51896 users:(("python",pid=1,fd=6))
+0      0       172.28.10.10:5000 172.28.10.21:43730 users:(("python",pid=1,fd=8))
+0      0       172.28.10.10:5000 172.28.10.22:42218 users:(("python",pid=1,fd=7))
+
+$ docker exec pc01 ping -c 3 collector
+PING collector (172.28.10.10) 56(84) bytes of data.
+64 bytes from collector.lanwatch_lan (172.28.10.10): icmp_seq=1 ttl=64 time=0.047 ms
+64 bytes from collector.lanwatch_lan (172.28.10.10): icmp_seq=2 ttl=64 time=0.065 ms
+64 bytes from collector.lanwatch_lan (172.28.10.10): icmp_seq=3 ttl=64 time=0.072 ms
+
+--- collector ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2052ms
+rtt min/avg/max/mdev = 0.047/0.061/0.072/0.010 ms
+
+$ docker exec pc01 getent hosts collector
+172.28.10.10    collector
+
+$ docker exec collector ps -o user,pid,nlwp,cmd -C python
+USER         PID NLWP CMD
+lanwatch       1    5 python collector/server.py
+
+$ docker exec collector ls -ld /data
+drwxr-x--- 3 lanwatch lanwatch 4096 Nov  9 22:37 /data

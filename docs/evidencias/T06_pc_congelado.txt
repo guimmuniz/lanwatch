@@ -1,0 +1,5 @@
+2026-11-09 22:41:47,149 [INFO] [status] RESUMO online=['pc01', 'pc02', 'pc03'] offline=[] threads_ativas=5
+2026-11-09 22:41:56,757 [WARNING] [agent-pc03] agente pc03 sem resposta há 15s — considerado OFFLINE
+2026-11-09 22:41:57,150 [INFO] [status] RESUMO online=['pc01', 'pc02'] offline=['pc03'] threads_ativas=4
+2026-11-09 22:42:02,282 [INFO] [agent-pc03] agente pc03 conectado de 172.28.10.23:43164
+2026-11-09 22:42:07,150 [INFO] [status] RESUMO online=['pc01', 'pc02', 'pc03'] offline=[] threads_ativas=5

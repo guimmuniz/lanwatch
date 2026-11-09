@@ -1,0 +1,8 @@
+## lado do agente
+2026-11-09 22:40:06,336 [INFO] [intruso] conectando a collector:5000 ...
+2026-11-09 22:40:06,339 [ERROR] [intruso] autenticação recusada: token inválido — nova tentativa em 30s
+2026-11-09 22:40:36,339 [INFO] [intruso] conectando a collector:5000 ...
+2026-11-09 22:40:36,340 [ERROR] [intruso] autenticação recusada: token inválido — nova tentativa em 30s
+## lado do coletor
+2026-11-09 22:40:06,338 [WARNING] [Thread-4 (handle_client)] 172.28.10.2:37094 AUTENTICAÇÃO RECUSADA (host=intruso)
+2026-11-09 22:40:36,340 [WARNING] [Thread-5 (handle_client)] 172.28.10.2:37256 AUTENTICAÇÃO RECUSADA (host=intruso)

@@ -1,0 +1,35 @@
+$ docker exec -u root collector tcpdump -i eth0 -A -c 4 "tcp port 5000 and host 172.28.10.21 and tcp[tcpflags] & tcp-push != 0"
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+4 packets captured
+6 packets received by filter
+0 packets dropped by kernel
+22:42:15.981097 IP 172.28.10.21.51796 > 172.28.10.10.5000: Flags [P.], seq 579890684:579890718, ack 2390521138, win 63, options [nop,nop,TS val 1594934902 ecr 1617243643], length 34
+E..V.	@.@..@..
+...
+
+.T..".m..|u2...?l......
+_..v`e-.{"type":"ping","t":563.719736741}
+
+22:42:15.981278 IP 172.28.10.10.5000 > 172.28.10.21.51796: Flags [P.], seq 1:35, ack 34, win 64, options [nop,nop,TS val 1617245603 ecr 1594934902], length 34
+E..V2x@.@.....
+
+..
+....T.|u2".n....@l......
+`e5._..v{"type":"pong","t":563.719736741}
+
+22:42:15.981729 IP 172.28.10.21.51796 > 172.28.10.10.5000: Flags [P.], seq 34:176, ack 35, win 63, options [nop,nop,TS val 1594934903 ecr 1617245603], length 142
+E....
+@.@.....
+...
+
+.T..".n..|uT...?m......
+_..w`e5.{"type":"metrics","host":"pc01","ts":1794264135.9814837,"cpu":5.8,"mem":7.5,"disk":29.5,"net_tx":8730,"net_rx":6998,"procs":1,"rtt_ms":0.332}
+
+22:42:17.982164 IP 172.28.10.21.51796 > 172.28.10.10.5000: Flags [P.], seq 176:210, ack 35, win 63, options [nop,nop,TS val 1594936903 ecr 1617245647], length 34
+E..V..@.@..>..
+...
+
+.T..".n..|uT...?l......
+_..G`e5.{"type":"ping","t":565.720798968}
+

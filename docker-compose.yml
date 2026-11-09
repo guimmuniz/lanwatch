@@ -1,0 +1,65 @@
+# LANWatch — ambiente do Checkpoint 1
+# 1 coletor + 3 agentes (PCs simulados) numa rede bridge definida pelo usuário.
+name: lanwatch
+
+networks:
+  lan:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.10.0/24
+          gateway: 172.28.10.1
+
+volumes:
+  collector-data:
+
+x-agent: &agent
+  build: { context: ., dockerfile: agent/Dockerfile }
+  image: lanwatch-agent
+  restart: unless-stopped
+  depends_on: [collector]
+  environment: &agent-env
+    COLLECTOR_HOST: collector     # resolvido pelo DNS interno do Docker (127.0.0.11)
+    COLLECTOR_PORT: "5000"
+    AGENT_TOKEN: ${AGENT_TOKEN:?defina AGENT_TOKEN no .env}
+    INTERVAL: "2"
+
+services:
+  collector:
+    build: { context: ., dockerfile: collector/Dockerfile }
+    image: lanwatch-collector
+    container_name: collector
+    hostname: collector
+    restart: unless-stopped
+    environment:
+      AGENT_TOKEN: ${AGENT_TOKEN:?defina AGENT_TOKEN no .env}
+    ports:
+      - "5000:5000"               # permite que PCs reais (fora do Docker) enviem métricas
+    volumes:
+      - collector-data:/data
+    networks:
+      lan: { ipv4_address: 172.28.10.10 }
+
+  pc01:
+    <<: *agent
+    container_name: pc01
+    hostname: pc01
+    environment: { <<: *agent-env, AGENT_NAME: pc01 }
+    networks:
+      lan: { ipv4_address: 172.28.10.21 }
+
+  pc02:
+    <<: *agent
+    container_name: pc02
+    hostname: pc02
+    environment: { <<: *agent-env, AGENT_NAME: pc02 }
+    networks:
+      lan: { ipv4_address: 172.28.10.22 }
+
+  pc03:
+    <<: *agent
+    container_name: pc03
+    hostname: pc03
+    environment: { <<: *agent-env, AGENT_NAME: pc03 }
+    networks:
+      lan: { ipv4_address: 172.28.10.23 }

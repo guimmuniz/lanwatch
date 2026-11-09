@@ -1,0 +1,20 @@
+2026-11-09 22:37:50,117 [INFO] [pc01] enviado cpu=2.0% mem=7.5% rtt=0.40ms
+2026-11-09 22:37:52,118 [INFO] [pc01] enviado cpu=1.5% mem=7.5% rtt=0.47ms
+2026-11-09 22:37:54,119 [INFO] [pc01] enviado cpu=0.3% mem=7.5% rtt=0.39ms
+2026-11-09 22:37:56,120 [INFO] [pc01] enviado cpu=0.5% mem=7.5% rtt=0.39ms
+2026-11-09 22:37:58,121 [INFO] [pc01] enviado cpu=0.3% mem=7.5% rtt=0.40ms
+2026-11-09 22:38:00,122 [WARNING] [pc01] conexão perdida: coletor fechou a conexão
+2026-11-09 22:38:00,122 [INFO] [pc01] reconectando em 1.0s
+2026-11-09 22:38:01,141 [INFO] [pc01] conectando a collector:5000 ...
+2026-11-09 22:38:01,142 [WARNING] [pc01] falha de DNS ao resolver 'collector': [Errno -2] Name or service not known
+2026-11-09 22:38:01,143 [INFO] [pc01] reconectando em 2.5s
+2026-11-09 22:38:03,630 [INFO] [pc01] conectando a collector:5000 ...
+2026-11-09 22:38:03,632 [WARNING] [pc01] falha de DNS ao resolver 'collector': [Errno -2] Name or service not known
+2026-11-09 22:38:03,632 [INFO] [pc01] reconectando em 4.1s
+2026-11-09 22:38:07,752 [INFO] [pc01] conectando a collector:5000 ...
+2026-11-09 22:38:07,753 [WARNING] [pc01] falha de DNS ao resolver 'collector': [Errno -2] Name or service not known
+2026-11-09 22:38:07,754 [INFO] [pc01] reconectando em 8.1s
+2026-11-09 22:38:15,902 [INFO] [pc01] conectando a collector:5000 ...
+2026-11-09 22:38:15,904 [INFO] [pc01] conectado e autenticado (protocolo v1)
+2026-11-09 22:38:15,905 [INFO] [pc01] enviado cpu=0.0% mem=7.4% rtt=0.24ms
+2026-11-09 22:38:17,906 [INFO] [pc01] enviado cpu=0.5% mem=7.3% rtt=0.60ms
